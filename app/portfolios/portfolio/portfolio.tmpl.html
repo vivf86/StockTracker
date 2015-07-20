@@ -1,0 +1,36 @@
+<h1>Portfolio</h1>
+<h2>{{portfolioCtrl.portfolio.name}}</h2>
+<table>
+    <thead>
+    <tr>
+        <td>
+            Stock code
+        </td>
+        <td>
+            Entry date
+        </td>
+        <td>
+            Entry price
+        </td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="stock in portfolioCtrl.portfolio.stocks">
+        <td>
+            {{stock.stockCode}}
+        </td>
+        <td>
+            {{stock.entryDate}}
+        </td>
+        <td>
+            {{stock.entryPrice}}
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+<ui-view>
+    <a class="button" ui-sref="stockTracker.portfolios.portfolio.addStock">
+        Add Stock
+    </a>
+</ui-view>

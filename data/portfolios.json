@@ -1,0 +1,32 @@
+[
+  {
+    "stocks": [
+      {
+        "stockCode": "AAPL",
+        "entryDate": "15/03/2014",
+        "entryPrice": "28.12"
+      },
+      {
+        "stockCode": "GOOG",
+        "entryDate": "12/12/2011",
+        "entryPrice": "503.32"
+      }
+    ],
+    "name": "Tech Stocks"
+  },
+  {
+    "stocks": [
+      {
+        "stockCode": "CAT",
+        "entryDate": "15/03/2014",
+        "entryPrice": "28.12"
+      },
+      {
+        "stockCode": "VZ",
+        "entryDate": "12/12/2011",
+        "entryPrice": "503.32"
+      }
+    ],
+    "name": "DJ30"
+  }
+]

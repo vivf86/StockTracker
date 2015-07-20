@@ -1,0 +1,9 @@
+<h1>Portfolios List</h1>
+<div class="row collapse">
+    <ul class="inline-list">
+        <li class="inline-list-btn" ng-repeat="portfolio in portfoliosCtrl.portfolios">
+            <a class="button" ng-class="{'success':portfoliosCtrl.isCurrentPortfolio(portfolio.name)}" ui-sref="stockTracker.portfolios.portfolio({portfolioName:portfolio.name})">{{portfolio.name}}</a>
+        </li>
+    </ul>
+</div>
+<div ui-view="currentPortfolio"></div>

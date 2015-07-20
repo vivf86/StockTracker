@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="app/bower_components/foundation/css/foundation.css">
+    <link rel="stylesheet" href="app/bower_components/foundation/css/normalize.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body id="stockTracker" ng-app="stockTracker">
+
+<div ng-controller="MainCtrl">
+    <div class="row collapse">
+        <h1>StockTracker</h1>
+        <ul class="inline-list">
+            <li class="inline-list-btn"><a class="button" ui-sref="stockTracker.watchlist">Watchlist</a></li>
+            <li class="inline-list-btn"><a class="button" ui-sref="stockTracker.portfolios">Portfolio</a></li>
+        </ul>
+    </div>
+    <div ui-view="watchlist" ng-show="$state.includes('stockTracker.watchlist')"></div>
+    <div ui-view="portfolios" ng-show="$state.includes('stockTracker.portfolios')"></div>
+</div>
+
+
+
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-mocks/angular-mocks.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="bower_components/lodash/lodash.js"></script>
+<script src="app/app.js"></script>
+<script src="app/watchlist/watchlist.js"></script>
+<script src="app/portfolios/portfolios.js"></script>
+<script src="app/portfolios/portfolio/portfolio.js"></script>
+<script src="app/portfolios/portfolio/addStock/add-stock.js"></script>
+<script src="app/common/models/stock-data-model.js"></script>
+<script src="app/common/models/portfolios-model.js"></script>
+
+</body>
+</html>

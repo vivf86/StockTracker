@@ -1,0 +1,32 @@
+<!-- todo loader-->
+<form ng-submit="watchlist.getQuotes()" novalidate role="form">
+    <div class="row collapse">
+        <div class="small-9 columns">
+            <input type="text" placeholder="Enter stock code" ng-model="watchlist.symbols"/>
+        </div>
+        <div class="small-3 columns">
+            <button type="submit" class="postfix">Load</button>
+        </div>
+    </div>
+</form>
+
+<div>
+    <table>
+        <thead>
+        <tr>
+            <td>Symbol</td>
+            <td>Name</td>
+            <td>Last Price</td>
+            <td></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="stock in watchlist.quotes">
+            <td>{{stock.Symbol}}</td>
+            <td>{{stock.Name}}</td>
+            <td>{{stock.LastPrice}}</td>
+            <td><a ng-click="watchlist.delete(stock.Symbol)">remove</a></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
