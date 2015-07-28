@@ -1,6 +1,7 @@
 angular.module('portfolios.portfolio',[
     'portfolios.portfolio.addStock',
-    'stockTracker.models.portfolios'
+    'stockTracker.models.portfolios',
+    'portfolios.portfolio.edit'
 ])
     .config(function ($stateProvider) {
 
@@ -16,12 +17,16 @@ angular.module('portfolios.portfolio',[
     })
 
     .controller('PortfolioCtrl', function($stateParams, PortfoliosModel) {
-        var portfolioCtrl = this;
+        var ctrl = this;
 
         PortfoliosModel.setCurrentPortfolio($stateParams.portfolioName).then(function(){
-            portfolioCtrl.portfolio = PortfoliosModel.getCurrentPortfolio();
+            ctrl.portfolio = PortfoliosModel.getCurrentPortfolio();
         });
 
         //functions to modify the portfolio in place
+
+        ctrl.updatePrices = function() {
+            //todo call market data model to update all the prices
+        }
     })
 ;

@@ -1,0 +1,37 @@
+<h1>Edit Portfolio</h1>
+<div class="row collapse">
+    <div class="small-3 columns"><span class="prefix">Portfolio Name</span></div>
+    <div class="small-9 columns"><input type="text" ng-model="editCtrl.portfolio.name"/></div>
+</div>
+<table>
+    <thead>
+    <tr>
+        <td>
+            Stock code
+        </td>
+        <td>
+            Entry date
+        </td>
+        <td>
+            Entry price
+        </td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="stock in editCtrl.portfolio.stocks">
+        <td>
+            <input type="text" ng-model="stock.stockCode"/>
+        </td>
+        <td>
+            <input type="text" ng-model="stock.entryDate"/>
+        </td>
+        <td>
+            <input type="text" ng-model="stock.entryPrice"/>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+<a class="button" ng-click="editCtrl.done()">
+    Done
+</a>

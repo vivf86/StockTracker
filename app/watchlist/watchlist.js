@@ -14,29 +14,29 @@ angular.module('watchlist', [
         })
     })
 
-    .controller('WatchlistCtrl', function(MarketDataModel) {
-        var watchlist = this;
+    .controller('WatchlistCtrl', function(MarketDataModel, PortfoliosModel) {
+        var ctrl = this;
 
-        watchlist.quotes = [];
+        ctrl.quotes = [];
 
-        watchlist.getQuotes = function () {
+        ctrl.getQuotes = function () {
             console.log('loading market data');
 
-            var symbols = _.trim(watchlist.symbols, ',').split(',');
+            var symbols = _.trim(ctrl.symbols, ',').split(',');
 
             function addToList(stock) {
                 if (!stock.Symbol) return;
 
                 // If existing, locate it's index
-                var idx = _.findIndex(watchlist.quotes, function (obj, idx, arr) {
+                var idx = _.findIndex(ctrl.quotes, function (obj, idx, arr) {
                     return obj.Symbol === stock.Symbol;
                 });
 
                 // Either update in place or append to list
                 if (idx < 0) {
-                    watchlist.quotes.push(stock);
+                    ctrl.quotes.push(stock);
                 } else {
-                    watchlist.quotes[idx] = stock;
+                    ctrl.quotes[idx] = stock;
                 }
             };
 
@@ -46,15 +46,22 @@ angular.module('watchlist', [
                         addToList(result);
                     });
             })
+            //todo loader
+            ctrl.symbols = '';
         };
 
-        watchlist.delete = function (symbol) {
+        ctrl.delete = function (symbol) {
             console.log('deleting ' + symbol);
-            var index = _.findIndex(watchlist.quotes,
+            var index = _.findIndex(ctrl.quotes,
                 function (item) {
                     return item.Symbol === symbol;
                 });
-            _.pullAt(watchlist.quotes, index);
+            _.pullAt(ctrl.quotes, index);
+        };
+
+        ctrl.save = function() {
+            //todo convert watchlist to portfolio structure
+            PortfoliosModel.addNewPortfolio();
         };
     })
 

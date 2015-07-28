@@ -30,7 +30,9 @@
     </tbody>
 </table>
 <ui-view>
+    <a class="button" ui-sref="stockTracker.portfolios.portfolio.edit">Edit</a>
     <a class="button" ui-sref="stockTracker.portfolios.portfolio.addStock">
         Add Stock
     </a>
+    <a class="button" ng-click="portfolioCtrl.updatePrices">Update Prices</a>
 </ui-view>

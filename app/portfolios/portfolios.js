@@ -1,6 +1,7 @@
 angular.module('portfolios', [
     'stockTracker.models.portfolios',
-    'portfolios.portfolio'
+    'portfolios.portfolio',
+    'portfolios.portfolio.edit'
 ])
     .config(function ($stateProvider) {
         $stateProvider.state('stockTracker.portfolios', {

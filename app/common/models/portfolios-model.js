@@ -61,6 +61,10 @@ angular.module('stockTracker.models.portfolios',[])
 
             return deferred.promise;
         };
+
+        model.addNewPortfolio = function(portfolio) {
+            portfolios.push(portfolio);
+        };
     })
 
 ;
